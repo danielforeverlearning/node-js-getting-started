@@ -1,3 +1,4 @@
+const pg = require('pg');
 const cool = require('cool-ascii-faces');
 const express = require('express')
 const path = require('path')
@@ -15,5 +16,16 @@ express()
       for (i=0; i < times; i++)
           result += i + ' ';
       res.send(result);
+  })
+  .get('/db', (req,res) => {
+      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+          client.query('SELECT * FROM test_table', function(err,result) {
+              done();
+              if (err)
+              { console.error(err); res.send("Error " + err); }
+              else
+              { res.render('pages/db', {results: result.rows} ); }
+          });
+      });
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
