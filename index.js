@@ -13,8 +13,8 @@ express()
   .get('/cool', (req, res) => res.send(cool()))
   .get('/ejstest', (req, res) => {
       var ejs = require('ejs'),
-          people = ['geddy', 'neil', 'alex'],
-          html = ejs.render('<%= mystuff.join("+ "); %>', {mystuff: people});
+          animals = ['dog', 'cat', 'cow'],
+          html = ejs.render('<%= mystuff.join("++"); %>', {mystuff: animals});
       res.send(html);
   })
   .get('/times', (req, res) => {
