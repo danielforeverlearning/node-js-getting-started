@@ -1,8 +1,9 @@
-const pg = require('pg');
-const cool = require('cool-ascii-faces');
-const express = require('express')
-const path = require('path')
-const PORT = process.env.PORT || 5000
+const pg         = require('pg');
+const cool       = require('cool-ascii-faces');
+const express    = require('express')
+const path       = require('path')
+const PORT       = process.env.PORT || 5000
+const formidable = require('formidable');
 
 
 express()
@@ -10,6 +11,31 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
+  .get('/mtgo', (req, res) => res.render('pages/mtgo'))
+  .get('/aftersubmit', (req, res) => {
+      var form = new formidable.IncomingForm();
+
+      //***** do not get confused these console.log are server-side *****
+      form.parse(req)
+        .on('field', function(name,field) {
+            console.log('Got a field:', name);
+            res.write('<p>field name: ' + name + '</p>');
+            res.write('<p>field: ' + field + '</p>');
+            if (name == "cardname_name")
+               searchcard = field;
+        })
+        .on('error', function(err) {
+            console.log('Got error: ');
+            console.log(err);
+            res.write('<p>got an error check console log</p>');
+            res.end();
+        })
+        .on('end', function() {
+            console.log('Got end');
+            res.write('<p>done</p>');
+            res.end();
+        });
+  })
   .get('/cool', (req, res) => res.send(cool()))
   .get('/ejstest', (req, res) => {
       var ejs = require('ejs'),
