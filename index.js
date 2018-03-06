@@ -1,11 +1,13 @@
-const pg         = require('pg');
-const cool       = require('cool-ascii-faces');
-const express    = require('express')
-const path       = require('path')
-const PORT       = process.env.PORT || 5000
-const formidable = require('formidable');
-var   searchcard = "";
-var   savestr    = '';
+const pg          = require('pg');
+const cool        = require('cool-ascii-faces');
+const express     = require('express')
+const path        = require('path')
+const PORT        = process.env.PORT || 5000
+const formidable  = require('formidable');
+var   querystring = require('querystring');
+var   searchcard  = "";
+var   savestr     = '';
+
 
 function savemydata(data) {
     savestr += data;
