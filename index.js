@@ -4,6 +4,50 @@ const express    = require('express')
 const path       = require('path')
 const PORT       = process.env.PORT || 5000
 const formidable = require('formidable');
+var   searchcard = "";
+var   savestr    = '';
+
+function savemydata(data) {
+    savestr += data;
+}
+
+function endbattleaxe(res) {
+    console.log("inside endbattleaxe take a look at savestr");
+    console.log(savestr);
+    res.render('pages/showresult');
+}
+
+function battleaxe(res) {
+    console.log("inside battleaxe");
+    res.setEncoding('utf-8');
+    res.on('data', savemydata);
+    res.on('end', endbattleaxe);
+}
+
+
+function DoMTGOGetRequest(searchcard) {
+  var data       = { name: searchcard, };
+  var endpoint = '/v1/cards?' + querystring.stringify(data);
+  var headers  = {};
+
+  var options = {
+    host:   MTGO_host,
+    path:   endpoint,
+    method: 'GET',
+    headers: headers
+  };
+
+  //ok i think i get it ..... async call to https.request.....
+  //it does not wait for return.....
+  //straight to execute writeHead writedogdog and write savestr 
+  //which has not been filled yet
+  //that is why so confusing
+
+
+  var mtgoreq = https.request(options, battleaxe);
+  mtgoreq.write("");
+  mtgoreq.end();
+}
 
 
 express()
@@ -31,9 +75,8 @@ express()
             res.end();
         })
         .on('end', function() {
-            console.log('Got end');
-            res.write('<p>done</p>');
-            res.end();
+            console.log('Got to end');
+            DoMTGOGetRequest(searchcard);
         });
   })
   .get('/cool', (req, res) => res.send(cool()))
