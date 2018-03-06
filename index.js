@@ -12,7 +12,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/mtgo', (req, res) => res.render('pages/mtgo'))
-  .get('/aftersubmit', (req, res) => {
+  .post('/aftersubmit', (req, res) => {
       var form = new formidable.IncomingForm();
 
       //***** do not get confused these console.log are server-side *****
