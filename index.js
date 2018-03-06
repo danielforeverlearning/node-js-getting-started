@@ -51,7 +51,7 @@ function DoMTGOGetRequest(searchcard, res) {
     headers: headers
   };
 
-  res.write("<p>goodbye</p>");
+  res.write("<p>calling mtgo api call to get card data .....</p>");
   saveres = res;
 
   //ok i think i get it ..... async call to https.request.....
