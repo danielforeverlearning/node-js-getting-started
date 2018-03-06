@@ -14,7 +14,7 @@ express()
   .get('/ejstest', (req, res) => {
       var ejs = require('ejs'),
           people = ['geddy', 'neil', 'alex'],
-          html = ejs.render('<%= people.join(", "); %>', {people: people});
+          html = ejs.render('<%= people.join("+ "); %>', {people: people});
       res.send(html);
   })
   .get('/times', (req, res) => {
