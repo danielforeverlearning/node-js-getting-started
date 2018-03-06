@@ -5,6 +5,7 @@ const path        = require('path')
 const PORT        = process.env.PORT || 5000
 const formidable  = require('formidable');
 var   querystring = require('querystring');
+var   MTGO_host   = 'api.magicthegathering.io';
 var   searchcard  = "";
 var   savestr     = '';
 
