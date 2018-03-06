@@ -1,25 +1,32 @@
-const pg          = require('pg');
-const cool        = require('cool-ascii-faces');
-const express     = require('express')
-const path        = require('path')
-const PORT        = process.env.PORT || 5000
-const formidable  = require('formidable');
-var   http        = require('http');
-var   https       = require('https');
-var   querystring = require('querystring');
-var   MTGO_host   = 'api.magicthegathering.io';
-var   searchcard  = "";
-var   savestr     = '';
+const pg           = require('pg');
+const cool         = require('cool-ascii-faces');
+const express      = require('express')
+const path         = require('path')
+const PORT         = process.env.PORT || 5000
+const formidable   = require('formidable');
+var   http         = require('http');
+var   https        = require('https');
+var   querystring  = require('querystring');
+var   MTGO_host    = 'api.magicthegathering.io';
+var   searchcard   = "";
+var   savestr      = '';
+var   events       = require('events');
+var   eventEmitter = new events.EventEmitter();
 
+var   printResultEventHandler = function() {
+    console.log('inside printResultEventHandler');
+}
+
+eventEmitter.on('printresult', printResultEventHandler);
 
 function savemydata(data) {
     savestr += data;
 }
 
-function endbattleaxe(res) {
+function endbattleaxe() {
     console.log("inside endbattleaxe take a look at savestr");
     console.log(savestr);
-    res.render('pages/showresult');
+    
 }
 
 function battleaxe(res) {
@@ -30,7 +37,7 @@ function battleaxe(res) {
 }
 
 
-function DoMTGOGetRequest(searchcard) {
+function DoMTGOGetRequest(searchcard, res) {
   var data       = { name: searchcard, };
   var endpoint = '/v1/cards?' + querystring.stringify(data);
   var headers  = {};
@@ -41,6 +48,9 @@ function DoMTGOGetRequest(searchcard) {
     method: 'GET',
     headers: headers
   };
+
+  res.write("<p>goodbye</p>");
+  res.end();
 
   //ok i think i get it ..... async call to https.request.....
   //it does not wait for return.....
@@ -81,14 +91,14 @@ express()
         })
         .on('end', function() {
             console.log('Got to end');
-            DoMTGOGetRequest(searchcard);
+            DoMTGOGetRequest(searchcard, res);
         });
   })
   .get('/cool', (req, res) => res.send(cool()))
   .get('/ejstest', (req, res) => {
       var ejs = require('ejs'),
-          animals = ['dog', 'cat', 'cow'],
-          html = ejs.render('<%= mystuff.join("++"); %>', {mystuff: animals});
+      animals = ['dog', 'cat', 'cow'],
+      html = ejs.render('<%= mystuff.join("++"); %>', {mystuff: animals});
       res.send(html);
   })
   .get('/times', (req, res) => {
