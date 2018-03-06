@@ -10,6 +10,7 @@ var   querystring  = require('querystring');
 var   MTGO_host    = 'api.magicthegathering.io';
 var   searchcard   = "";
 var   savestr      = '';
+var   saveres;
 var   events       = require('events');
 var   eventEmitter = new events.EventEmitter();
 
@@ -26,7 +27,8 @@ function savemydata(data) {
 function endbattleaxe() {
     console.log("inside endbattleaxe take a look at savestr");
     console.log(savestr);
-    
+    saveres.write("<p>" + savestr + "</p>");
+    saveres.end();
 }
 
 function battleaxe(res) {
@@ -50,7 +52,7 @@ function DoMTGOGetRequest(searchcard, res) {
   };
 
   res.write("<p>goodbye</p>");
-  res.end();
+  saveres = res;
 
   //ok i think i get it ..... async call to https.request.....
   //it does not wait for return.....
