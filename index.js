@@ -58,6 +58,9 @@ function DoMTGOGetRequest(searchcard, res) {
     headers: headers
   };
 
+  console.log("inside DoMTGOGetRequest");
+  console.log(endpoint);
+
   //res.write("<p>calling mtgo api call to get card data .....</p>");
 
   saveres = res;
