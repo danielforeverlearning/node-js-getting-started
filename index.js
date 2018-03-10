@@ -26,8 +26,8 @@ function savemydata(data) {
 }
 
 function endbattleaxe() {
-    console.log("inside endbattleaxe take a look at savestr");
-    console.log(savestr);
+    console.log("inside endbattleaxe ");
+    //console.log(savestr);
 
     //saveres.write("<p>" + savestr + "</p>");
     //saveres.end();
