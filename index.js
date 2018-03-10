@@ -32,7 +32,9 @@ function endbattleaxe() {
     //saveres.write("<p>" + savestr + "</p>");
     //saveres.end();
 
-    saveres.render('pages/showresult');
+    var responseobj = JSON.parse(savestr);
+
+    saveres.render('pages/showresult', {results: responseobj} );
 
 }
 
