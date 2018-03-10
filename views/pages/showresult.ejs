@@ -17,7 +17,10 @@
 
    <p>length: <%= results.cards.length %></p>
    <% for (var xx=0; xx < results.cards.length; xx++) { %>
-      <p>xx: <%= xx %></p>
+      <p>xx:   <%= xx %></p>
+      <p>name: <%= results.cards[xx].name %></p>
+      <p>set:  <%= results.cards[xx].set %></p>
+      <p>imageUrl: <img src="<%= results.cards[xx].imageUrl %>"></img></p>
    <% } %>
 </body>
 </html>
