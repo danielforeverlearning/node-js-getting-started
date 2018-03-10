@@ -28,8 +28,10 @@ function savemydata(data) {
 function endbattleaxe() {
     console.log("inside endbattleaxe take a look at savestr");
     console.log(savestr);
-    saveres.write("<p>" + savestr + "</p>");
-    saveres.end();
+
+    //saveres.write("<p>" + savestr + "</p>");
+    //saveres.end();
+    saveres.render('pages/showresult');
 }
 
 function battleaxe(res) {
@@ -57,8 +59,8 @@ function DoMTGOGetRequest(searchcard, res) {
 
   //ok i think i get it ..... async call to https.request.....
   //it does not wait for return.....
-  //straight to execute writeHead writedogdog and write savestr 
-  //which has not been filled yet
+  //straight to executing mtgoreq.write and mtgoreq.end
+  //but battleaxe is on another thread to be performed
   //that is why so confusing
 
 
