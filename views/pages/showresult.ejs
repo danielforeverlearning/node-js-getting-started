@@ -20,7 +20,8 @@
       <p>xx:   <%= xx %></p>
       <p>name: <%= results.cards[xx].name %></p>
       <p>set:  <%= results.cards[xx].set %></p>
-      <p>imageUrl: <img src="<%= results.cards[xx].imageUrl %>"></img></p>
+      <p>imageUrl: <%= results.cards[xx].imageUrl %></p>
+      <p><img src="<%= results.cards[xx].imageUrl %>"></img></p>
    <% } %>
 </body>
 </html>
