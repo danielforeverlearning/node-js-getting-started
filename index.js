@@ -28,7 +28,7 @@ function savemydata(data) {
 
 function endbattleaxe() {
     console.log("inside endbattleaxe ");
-    console.log(savestr);
+    //console.log(savestr);
 
     //saveres.write("<p>" + savestr + "</p>");
     //saveres.end();
@@ -65,6 +65,7 @@ function DoMTGOGetRequest(searchcard, res) {
   //res.write("<p>calling mtgo api call to get card data .....</p>");
 
   saveres = res;
+  savestr = '';
 
   //ok i think i get it ..... async call to https.request.....
   //it does not wait for return.....
