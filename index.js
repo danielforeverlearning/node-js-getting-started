@@ -22,11 +22,13 @@ var   printResultEventHandler = function() {
 eventEmitter.on('printresult', printResultEventHandler);
 
 function savemydata(data) {
+    console.log("inside savemydata");
     savestr += data;
 }
 
 function endbattleaxe() {
     console.log("inside endbattleaxe ");
+
     //console.log(savestr);
 
     //saveres.write("<p>" + savestr + "</p>");
