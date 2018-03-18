@@ -11,7 +11,7 @@
 Example: {{ 5 + 5 }}</p>
 
 
-<div ng-app="myApp" ng-init="name='cat'; namebb='dog'; namecc='pig'; myCol='lightblue'; person={first:'John',last:'Doe'}" ng-controller="myCtrl">
+<div ng-app="myApp" ng-init="name='cat'; namebb='dog'; namecc='pig'; myCol='lightblue'; person={first:'John',last:'Doe'}; points=[1,15,19,2,40]" ng-controller="myCtrl">
    <p>examples use ng-model inside input textboxes</p>
    <br>
 
@@ -33,9 +33,20 @@ Example: {{ 5 + 5 }}</p>
    <p>Example using expression in CSS property</p>
    <input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
    <br>
+   <br>
+   <br>
 
    <p>Example using objects</p>
    <p>The ng-init initialized last of person is {{person.last }}</p>
+   <br>
+   <br>
+   <br>
+
+   <p>Example using arrays</p>
+   <p>The 3rd result of points is {{points[2] }}</p>
+   <br>
+   <br>
+   <br>
 
 
    <p>First example using module and controller</p>
