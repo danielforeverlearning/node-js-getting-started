@@ -63,6 +63,15 @@ Example: {{ 5 + 5 }}</p>
    <br>
    <br>
    <br>
+
+   <p>example using numbers</p>
+   Quantity: <input type="number" ng-model="quantity">
+   Price: <input type="number" ng-model="price">
+   <p><b>Total in dollar:</b> {{quantity * price}}</p>
+   <br>
+   <br>
+   <br>
+
 </div>
 
 <script>
@@ -81,7 +90,7 @@ app.directive("w3TestDirective", function() {
 
 app.directive("howDoesThisWork", function() {
      return {
-         template : "Hopefully this sentenc will be displayed!"
+         template : "Hopefully this sentence will be displayed!"
      };
 });
 
