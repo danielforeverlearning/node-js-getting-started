@@ -7,7 +7,7 @@
 
 <body>
 
-<div ng-app="" ng-init="name='cat'; namebb='dog'; namecc='pig'">
+<div ng-app="myApp" ng-init="name='cat'; namebb='dog'; namecc='pig'" ng-controller="myCtrl">
    <p>examples use ng-model inside input textboxes</p>
    <br>
 
@@ -24,14 +24,12 @@
    <p>You can use data-ng- instead of ng- if you want to make your page HTML valid</p>
    <p>namecc : <input type="text" data-ng-model="namecc"></p>
    <h1>namecc = <span data-ng-bind="namecc"></span></h1>
-</div>
+   <br>
+   <br>
 
-
-<p>First example using module and controller</p>
-<div ng-app="myApp" ng-controller="myCtrl">
+   <p>First example using module and controller</p>
    firstName: <input type="text" ng-model="firstName"><br>
    lastName: <input type="text" ng-model="lastName"><br>
-   <br>
    full name: {{firstName + " " + lastName}}
 </div>
 
