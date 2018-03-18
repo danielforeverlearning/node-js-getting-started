@@ -7,7 +7,11 @@
 
 <body>
 
-<div ng-app="myApp" ng-init="name='cat'; namebb='dog'; namecc='pig'" ng-controller="myCtrl">
+<p>So what you think is an expression outside of ng-app div, will not evaluate as expression it will be displayed as is</p>
+<p>Example: {{ 5 + 5 }}</p>
+
+
+<div ng-app="myApp" ng-init="name='cat'; namebb='dog'; namecc='pig'; myCol='lightblue'" ng-controller="myCtrl">
    <p>examples use ng-model inside input textboxes</p>
    <br>
 
@@ -25,7 +29,9 @@
    <p>namecc : <input type="text" data-ng-model="namecc"></p>
    <h1>namecc = <span data-ng-bind="namecc"></span></h1>
    <br>
-   <br>
+
+   <p>Example using expression in CSS property</p>
+   <input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
 
    <p>First example using module and controller</p>
    firstName: <input type="text" ng-model="firstName"><br>
@@ -41,6 +47,6 @@ app.controller('myCtrl', function($scope) {
 });
 </script>
 
-
+    
 </body>
 </html>
