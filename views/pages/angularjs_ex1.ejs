@@ -59,6 +59,7 @@ Example: {{ 5 + 5 }}</p>
 
    <p>example using directive</p>
    <p w3-test-directive></div>
+   <p how-does-this-work></div>
    <br>
    <br>
    <br>
@@ -75,6 +76,12 @@ app.controller('myCtrl', function($scope) {
 app.directive("w3TestDirective", function() {
      return {
          template : "This is made in a directive constructor!"
+     };
+});
+
+app.directive("howDoesThisWork", function() {
+     return {
+         template : "Hopefully this sentenc will be displayed!"
      };
 });
 
