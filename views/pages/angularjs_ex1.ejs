@@ -11,7 +11,7 @@
 Example: {{ 5 + 5 }}</p>
 
 
-<div ng-app="myApp" ng-init="name='cat'; namebb='dog'; namecc='pig'; myCol='lightblue'; person={first:'John',last:'Doe'}; points=[1,15,19,2,40]" ng-controller="myCtrl">
+<div ng-app="myApp" ng-init="name='cat'; namebb='dog'; namecc='pig'; myCol='lightblue'; person={first:'John',last:'Doe'}; points=[1,15,19,2,40]; peep=[{name:'Jani',country:'Norway'},{name:'Hege',country:'Sweden'},{'Kai',country:'Denmark'}]" ng-controller="myCtrl">
    <p>examples use ng-model inside input textboxes</p>
    <br>
 
@@ -71,6 +71,20 @@ Example: {{ 5 + 5 }}</p>
    <br>
    <br>
    <br>
+
+   <p>Looping with ng-repeat:</p>
+   <ul>
+    <li ng-repeat="x in points">
+      {{ x }}
+    </li>
+   </ul>
+
+
+   <p>Looping with objects:</p>
+   <ul>
+    <li ng-repeat="x in peep">
+      {{ x.name + ', ' + x.country }}</li>
+   </ul>
 
 </div>
 
