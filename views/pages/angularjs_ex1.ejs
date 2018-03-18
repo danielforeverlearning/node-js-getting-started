@@ -61,6 +61,8 @@ Example: {{ 5 + 5 }}</p>
    <p w3-test-directive></p>
    <p how-does-this-work></p>
    <my-other-test-thing></my-other-test-thing>
+   <p class="my-class-example"></p>
+   <!-- directive: my-comment-example -->
    <br>
    <br>
    <br>
@@ -105,13 +107,28 @@ app.directive("w3TestDirective", function() {
 
 app.directive("howDoesThisWork", function() {
      return {
-         template : "Hopefully this sentence will be displayed!"
+         template : "This is an example of directive in an attribute!"
      };
 });
 
 app.directive("myOtherTestThing", function() {
      return {
-         template : "<h1>This is another long sentence!</h1>"
+         template : "<h1>This is example of yet another directive in an element name!</h1>"
+     };
+});
+
+app.directive("myClassExample", function() {
+     return {
+         restrict : "C",
+         template : "<h1>you must add the C to the restrict property to invok the directive from a class name</h1>"
+     };
+});
+
+app.directive("myCommentExample", function() {
+     return {
+         restrict : "M",
+         replace  : true,
+         template : "<h1>M is to invoke directive from comment and replace is so comment is visible</h1>"
      };
 });
 
