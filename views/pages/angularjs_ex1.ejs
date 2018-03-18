@@ -60,6 +60,7 @@ Example: {{ 5 + 5 }}</p>
    <p>example using directive</p>
    <p w3-test-directive></p>
    <p how-does-this-work></p>
+   <my-other-test-thing></my-other-test-thing>
    <br>
    <br>
    <br>
@@ -105,6 +106,12 @@ app.directive("w3TestDirective", function() {
 app.directive("howDoesThisWork", function() {
      return {
          template : "Hopefully this sentence will be displayed!"
+     };
+});
+
+app.directive("myOtherTestThing", function() {
+     return {
+         template : "<h1>This is another long sentence!</h1>"
      };
 });
 
