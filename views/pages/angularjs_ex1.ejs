@@ -7,20 +7,23 @@
 
 <body>
 
-<div ng-app="" ng-init="name='cat'; namebb='dog'">
+<div ng-app="" ng-init="name='cat'; namebb='dog'; namecc='pig'">
    <p>Both examples use ng-model inside input textboxes</p>
    <br></br>
 
-   <p>Example using double curly braces</p>
+   <p>Example using double curly braces called expressions</p>
    <p>Name : <input type="text" ng-model="name"></p>
    <h1>Hello {{name}}</h1>
    <br></br>
 
    <p>Example using ng-bind</p>
-   <p>Input something in to this input box:</p>
    <p>NameBB : <input type="text" ng-model="namebb"></p>
    <h1>nameBB is: <span ng-bind="namebb"></span></h1>
    <br></br>
+
+   <p>You can use data-ng- instead of ng- if you want to make your page HTML valid</p>
+   <p>NameCC : <input type="text" data-ng-model="namecc"></p>
+   <h1>namecc is: <span data-ng-bind="namecc"></span></h1>
 
 </div>
 
