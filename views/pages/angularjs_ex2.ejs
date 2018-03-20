@@ -75,6 +75,12 @@ Example: {{ 5 + 5 }}</p>
    <br>
    <br> 
 
+   <p>example of email validation checking</p>
+   <form name="myForm">
+       Email: <input type="email" name="myAddress" ng-model="myemailtext">
+       <span ng-show="myForm.myAddress.$error.email">NOT VALID EMAIL ADDRESS</span>
+   </form>
+
    <p>Looping with ng-repeat:</p>
    <ul>
     <li ng-repeat="x in points">
