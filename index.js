@@ -112,6 +112,7 @@ express()
         });
   })
   .get('/angularjs_ex1', (req, res) => res.render('pages/angularjs_ex1'))
+  .get('/squares', (req, res) => res.render('pages/squares'))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/ejstest', (req, res) => {
       var ejs = require('ejs'),
