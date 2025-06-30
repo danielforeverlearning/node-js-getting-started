@@ -94,15 +94,25 @@ heroku logs --tail
 
 
 
+
+
+
+
+
+GOT WORKING render.com webservice 6/29/2025 
+environment variable BASE_URL 0.0.0.0
+node index.js
 ******** simple custom module datetime example *********
-https://fast-headland-54688.herokuapp.com
-https://git.heroku.com/fast-headland-54688.git
+fast-headland-54688
 
 
+
+
+GOT WORKING render.com webservice 6/29/2025 
+environment variable BASE_URL 0.0.0.0
+node index.js
 ******** example form and upload file and opening file and reading file *****
-https://stark-ridge-73380.herokuapp.com/
-https://git.heroku.com/stark-ridge-73380.git
-
+stark-ridge-73380
 
 
 
@@ -118,6 +128,8 @@ node-js-getting-started
 
 
 
+
+
 GOT WORKING render.com webservice 6/29/2025 environment variable BASE_URL 0.0.0.0
 node index.js
 ********* simple mtgo 3rd-party api call ************
@@ -129,3 +141,5 @@ GOT WORKING render.com webservice 6/29/2025 environment variable BASE_URL 0.0.0.
 node index.js
 ******** example form *********************
 agile-garden-92262
+
+
