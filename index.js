@@ -129,7 +129,7 @@ express()
           result += i + ' ';
       res.send(result);
   })
-  .get('/db', (req, res) => res.render('pages/db'))
+  .get('/db2', (req, res) => res.render('pages/db2'))
   /**************************************************
   .get('/db', (req,res) => {
       pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -138,7 +138,7 @@ express()
               if (err)
               { console.error(err); res.send("Error " + err); }
               else
-              { res.render('pages/myotherdbpage', {results: result.rows} ); }
+              { res.render('pages/db', {results: result.rows} ); }
           });
       });
   })
