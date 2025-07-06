@@ -152,7 +152,7 @@ express()
             var result = 'createRes = ' + JSON.stringify(createRes);
             res.send(result);
         } catch (err) {
-            var result = 'Error connecting or creating table:' + err;
+            var result = 'Error connecting or creating table = ' + err;
             res.send(result);
         } finally {
             await client.end();
@@ -187,7 +187,7 @@ express()
             var result = 'dropRes = ' + JSON.stringify(dropRes);
             res.send(result);
         } catch (err) {
-            var result = 'Error connecting or dropping table:' + err;
+            var result = 'Error connecting or dropping table = ' + err;
             res.send(result);
         } finally {
             await client.end();
