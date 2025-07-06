@@ -129,7 +129,37 @@ express()
           result += i + ' ';
       res.send(result);
   })
-  .get('/db2', (req, res) => res.render('pages/db2'))
+  .get('/dbcreatetable', (req, res) => {
+          const { Client } = require('pg');
+
+          async function connectAndCreate() {
+          const client = new Client({
+            user: 'max', // e.g., 'postgres'
+            host: 'dpg-d1kvb83e5dus73f28aig-a',
+            database: 'tpjj', // The database you created
+            password: 'your_password',
+            port: 5432,
+        });
+
+        try {
+            await client.connect();
+            console.log('Connected to PostgreSQL!');
+
+            // Example: create table
+            const createRes = await client.query(
+                'CREATE TABLE cars (brand VARCHAR(255),model VARCHAR(255),year INT);'
+            );
+            console.log('createRes rows[0] = ', createRes.rows[0]);
+        } catch (err) {
+            console.error('Error connecting or creating table:', err);
+        } finally {
+            await client.end();
+            console.log('Disconnected from PostgreSQL.');
+        }
+    }
+
+    connectAndCreate();
+  })
   /**************************************************
   .get('/db', (req,res) => {
       pg.connect(process.env.DATABASE_URL, function(err, client, done) {
