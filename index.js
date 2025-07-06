@@ -149,9 +149,11 @@ express()
             const createRes = await client.query(
                 'CREATE TABLE cars (brand VARCHAR(255),model VARCHAR(255),year INT);'
             );
-            console.log('createRes rows[0] = ', createRes.rows[0]);
+            var result = 'createRes rows[0] = ' + createRes.rows[0];
+            res.send(result);
         } catch (err) {
-            console.error('Error connecting or creating table:', err);
+            var result = 'Error connecting or creating table:' + err;
+            res.send(result);
         } finally {
             await client.end();
             console.log('Disconnected from PostgreSQL.');
