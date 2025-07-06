@@ -149,10 +149,45 @@ express()
             const createRes = await client.query(
                 'CREATE TABLE cars (brand VARCHAR(255),model VARCHAR(255),year INT);'
             );
-            var result = 'createRes rows[0] = ' + createRes.rows[0];
+            var result = 'createRes = ' + createRes;
             res.send(result);
         } catch (err) {
             var result = 'Error connecting or creating table:' + err;
+            res.send(result);
+        } finally {
+            await client.end();
+            console.log('Disconnected from PostgreSQL.');
+        }
+    }
+
+    connectAndCreate();
+  })
+
+
+  .get('/dbdroptable', (req, res) => {
+          const { Client } = require('pg');
+
+          async function connectAndDrop() {
+          const client = new Client({
+            user: 'max', // e.g., 'postgres'
+            host: 'dpg-d1kvb83e5dus73f28aig-a',
+            database: 'tpjj', // The database you created
+            password: 'vSuU5pRACdyJvEJmmW8EQxjnaKg5v003',
+            port: 5432,
+        });
+
+        try {
+            await client.connect();
+            console.log('Connected to PostgreSQL!');
+
+            // Example: drop table
+            const dropRes = await client.query(
+                'DROP TABLE cars;'
+            );
+            var result = 'dropRes = ' + dropRes;
+            res.send(result);
+        } catch (err) {
+            var result = 'Error connecting or dropping table:' + err;
             res.send(result);
         } finally {
             await client.end();
