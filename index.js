@@ -129,6 +129,8 @@ express()
           result += i + ' ';
       res.send(result);
   })
+  .get('/db', (req, res) => res.render('pages/db'))
+  /**************************************************
   .get('/db', (req,res) => {
       pg.connect(process.env.DATABASE_URL, function(err, client, done) {
           client.query('SELECT * FROM test_table', function(err,result) {
@@ -136,8 +138,9 @@ express()
               if (err)
               { console.error(err); res.send("Error " + err); }
               else
-              { res.render('pages/db', {results: result.rows} ); }
+              { res.render('pages/myotherdbpage', {results: result.rows} ); }
           });
       });
   })
+  ****************************************************/
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
