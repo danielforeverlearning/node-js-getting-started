@@ -149,7 +149,7 @@ express()
             const createRes = await client.query(
                 'CREATE TABLE cars (brand VARCHAR(255),model VARCHAR(255),year INT);'
             );
-            var result = 'createRes = ' + createRes;
+            var result = 'createRes = ' + JSON.stringify(createRes);
             res.send(result);
         } catch (err) {
             var result = 'Error connecting or creating table:' + err;
@@ -184,7 +184,7 @@ express()
             const dropRes = await client.query(
                 'DROP TABLE cars;'
             );
-            var result = 'dropRes = ' + dropRes;
+            var result = 'dropRes = ' + JSON.stringify(dropRes);
             res.send(result);
         } catch (err) {
             var result = 'Error connecting or dropping table:' + err;
