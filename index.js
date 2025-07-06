@@ -137,7 +137,7 @@ express()
             user: 'max', // e.g., 'postgres'
             host: 'dpg-d1kvb83e5dus73f28aig-a',
             database: 'tpjj', // The database you created
-            password: 'your_password',
+            password: 'vSuU5pRACdyJvEJmmW8EQxjnaKg5v003',
             port: 5432,
         });
 
