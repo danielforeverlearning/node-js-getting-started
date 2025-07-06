@@ -195,7 +195,7 @@ express()
         }
     }
 
-    connectAndCreate();
+    connectAndDrop();
   })
   /**************************************************
   .get('/db', (req,res) => {
