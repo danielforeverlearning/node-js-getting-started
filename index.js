@@ -84,7 +84,8 @@ express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+  .get('/', (req, res) => res.render('pages/home'))
+  .get('/index', (req, res) => res.render('pages/index'))
   .get('/mtgo', (req, res) => res.render('pages/mtgo'))
   .post('/aftersubmit', (req, res) => {
       var form = new formidable.IncomingForm();
