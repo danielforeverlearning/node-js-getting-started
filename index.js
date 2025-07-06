@@ -85,6 +85,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/home'))
+  .get('/B', (req, res) => res.render('pages/B'))
   .get('/index', (req, res) => res.render('pages/index'))
   .get('/mtgo', (req, res) => res.render('pages/mtgo'))
   .post('/aftersubmit', (req, res) => {
